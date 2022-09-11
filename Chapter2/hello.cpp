@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include <iostream>
 
 int main()
 {
-    printf("hello world");
-    return 0;
+    std::cout << "Hell C++\n";
+    std::cout << "My first C++ program\n";
 }
