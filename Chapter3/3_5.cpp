@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+class Circle {
+    public:
+        int radius;
+
+        Circle();
+        Circle(int r);
+        ~Circle();
+        double getArea();
+};
+
+Circle::Circle() {
+    radius = 1;
+    cout << "radius" << radius << "make circle" << endl;
+}
+Circle::Circle(int r) {
+    radius = r;
+    cout << "radius" << radius << "make circle" << endl;
+};
+Circle::~Circle() {
+    cout << "radius" << radius << "remove circle" << endl;
+;}
+
+
