@@ -1,33 +1,26 @@
-#include <iostream>
-#include <string>
+#include<iostream>
 using namespace std;
 
-class Person {
-	int id;
-	double weight;
-	string name;
+class Book{
+	string title;
+	int price, pages;
 public:
-	Person() {
-		id = 1;
-		weight = 20.5;
-		name = "Grace";
+	Book(string title="", int price=0, int pages=0){
+		this->title = title; this->price = price; this->pages=pages;
 	}
-	Person(int a,string name) {
-		id = a;
-		this->name = name;
-		weight = 20.5;
+	void show(){
+		cout << title << ' ' << price << "circle " << pages << endl;
 	}
-	Person(int a,string name,double weight) {
-		id = a;
-		this->name = name;
-		this->weight = weight;
-	}
-	void show() { cout << id << ' ' << weight << ' ' << name << endl; }
+	string getTitle(){return title;};
+	bool operator! ();
 };
+bool Book::operator!(){
+if(price == 0) return true;
+else return false;
+}
 
-int main() {
-	Person grace, ashley(2, "Ashley"), helen(3, "Helen", 32.5);
-	grace.show();
-	ashley.show();
-	helen.show();
+
+int main(){
+Book book("벼룩시장", 0, 50);
+if(!book) cout << "its free" << endl;	
 }
