@@ -1,43 +1,51 @@
 #include <iostream>
 using namespace std;
-
-class AbstractGate {
-protected:
-	bool x, y;
+class Comparable {
 public:
-	void set(bool x, bool y) { this->x = x; this->y = y; }
-	virtual bool operation() = 0;
+	virtual bool operator > (Comparable& op2) = 0;
+	virtual bool operator < (Comparable& op2) = 0;
+	virtual bool operator == (Comparable& op2) = 0;
 };
 
-class ANDGate : public AbstractGate {
+class Circle :public Comparable{
+	int radius;
 public:
-	bool operation() {
-		return x & y;
+	Circle(int radius = 1) { this->radius = radius; }
+	int getRadius() { return radius; }
+	bool operator > (Comparable& op2) {
+		Circle* op = (Circle*)&op2;
+		if (radius >op->getRadius())
+			return 1;
+		else
+			return 0;
+	}
+	bool operator < (Comparable& op2) {
+		Circle* op = (Circle*)&op2;
+		if (radius <op->getRadius())
+			return 1;
+		else
+			return 0;
+	}
+	bool operator == (Comparable& op2) {
+		Circle* op = (Circle*)&op2;
+		if (radius ==op->getRadius())
+			return 1;
+		else
+			return 0;
 	}
 };
 
-class ORGate : public AbstractGate {
-public:
-	bool operation() {
-		return x | y;
-	}
-};
-class XORGate : public AbstractGate {
-public:
-	bool operation() {
-		return (x & ~y) | (~x & y);
-	}
-};
-int main(void) {
-	ANDGate andGate;
-	ORGate orGate;
-	XORGate xorGate;
+template <class T>
+T bigger(T a, T b) {
+	if (a > b) return a;
+	else return b;
+}
 
-	andGate.set(true, false);
-	orGate.set(true, false);
-	xorGate.set(true, false);
-	cout.setf(ios::boolalpha);
-	cout << andGate.operation() << endl;
-	cout << orGate.operation() << endl;
-	cout << xorGate.operation() << endl;
+int main() {
+	int a = 20, b = 50, c;
+	c = bigger(a, b);
+	cout << "20과 50중 큰 값은 " << c << endl;
+	Circle waffle(10), pizza(20), y;
+	y = bigger(waffle, pizza);
+	cout << "waffle과 pizza 중 큰 것의 반지름은 " << y.getRadius() << endl;
 }
