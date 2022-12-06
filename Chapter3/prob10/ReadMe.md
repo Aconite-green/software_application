@@ -6,7 +6,7 @@
 >#include <iostream>
 >using namespace std;
 >class Ram{
->       char mem[100*1024]
+>       char mem[100*1024];
 >       int size;
 >   public:
 >       Ram();
@@ -23,8 +23,7 @@
 >   cout << "102번지 값 = " <<(int)ram.read(102)<< endl;
 >}
 
-```
 
-> ```C++
+
 
 
