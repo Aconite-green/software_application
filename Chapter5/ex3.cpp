@@ -8,8 +8,9 @@ public:
 	int getRadius() { return radius; }
 	void setRadius(int r) { radius = r; }
 	void show() { cout << "radius is" << radius << '\n'; }
-
 };
+
+
 
 void increaseBy(Circle& a, Circle b) {
 	int r = a.getRadius() + b.getRadius();
