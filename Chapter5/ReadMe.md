@@ -1,15 +1,15 @@
 # CH5 Theory problems
 ---
 > ## 7.char 형 변수 c가 선언되어 있을 때, 참조 변수 r의 선언 중 틀린 것은?
-```C++
-//(1) 
-char & r = c;
-//(2)
-char r & = c;
-//(3)
-char& r = c;
-//(4)
-char &r = c;
+>```C++
+>//(1) 
+>char & r = c;
+>//(2)
+>char r & = c;
+>//(3)
+>char& r = c;
+>//(4)
+>char &r = c;
 ```
 
 ## __정답 :__
@@ -93,5 +93,6 @@ class MyClass{
         
 }
 ```
+
 
 

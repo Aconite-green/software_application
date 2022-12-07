@@ -15,18 +15,25 @@
 >         bool pop(int &n);
 > }
 >```
->## Circle 객체 b를 a에 더하여 a를 키우고자 다음 함수를 작성하였다.
->```C++
->void increaseBy(Circle a, Circle b){
->    int r = a.getRadius() + b.getRadius();
->    a.setRadius(r);
->}
->```
->## 다음 코드를 실행하면 increaseBy() 함수는 목적대로 실행되는가?
+>## MyIntStack 클래스를 활용하는 코드와 샐행 결과는 다음과 같다.
 >```C++
 >int main(){
->    Circle x(10), y(5);
->    increaseBy(x, y);
->    x.show();
+>    MyInStack a(10);
+>    a.push(10);
+>    a.push(20);
+>    MyIntStack b = a; //복사 생성
+>    b.push(30);
+>
+>    int n;
+>    a.pop(n); // 스택 a 팝
+>    cout << "스택 a에서 팝한 값 " << n << endl;
+>    b.pop(n); // 스택 b 팝
+>    cout << "스택 b에서 팝한 값 " << n << endl;
 >}
+>```
+>---
+>```bash
+>스택 a에서 팝한 값 20
+>스택 b에서 팝한 값 30
+>계속하려면 아무 키나 누르십시오 . . .
 >```
