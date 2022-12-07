@@ -1,4 +1,4 @@
-# CH6 Theory problems
+# CH7 Theory problems
 ---
 
 > ## 3.다음 함수 중 한 프로그램에 같이 선언할 수 없는 함수 2개를 골라라

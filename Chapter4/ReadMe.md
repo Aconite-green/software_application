@@ -113,19 +113,27 @@ void f(){
 }
 ```
 ## 정답 :
-발생 X : (1), (2), (3)
+발생 X :(2), (3)
 
 
-발생 O : (4)
+발생 O :(1), (4)
 ```C++
+//(1)
+void f() {
+	char* p = new char[10];
+	strcpy(p, "abc");
+	delete[] p;
+}
+//(4)
 void f(){
     int *p;
     for(int i = 0; i<5; i++){
         p = new int;
         cin >> *p;
-        if(*p % 2 == 1) break;
+        if(*p % 2 == 1) 
         //for문안에 delete를 넣어줘야 함
         delete p;
+        break;
     }
     
 }
@@ -143,7 +151,7 @@ void f(){
 ## 정답 :
 ```C++
 string a = "My name is Jane."
-char ch = a[1]
+char ch = a[2]
 if(a == "My name is John.") cout << "Same";
 a = a + "``";
 a[1] = "Y";

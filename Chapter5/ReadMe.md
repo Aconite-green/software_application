@@ -10,7 +10,7 @@
 >char& r = c;
 >//(4)
 >char &r = c;
-```
+>```
 
 ## __정답 :__
 (2) : 참조 연산자의 순서가 변수 보다 앞에 가있어야 한다.
@@ -44,7 +44,7 @@
 x = 1
 y = 100
 ```
-big1의 참조는 아무런 영향을 끼치지 못함, big2는 참조연산자로서 동작해서 값을 바꿈
+big1의 참조는 아무런 영향을 끼치지 못함(call by value), big2는 참조연산자로서 동작해서(call by reference) 값을 바꿈
 
 ---
 
@@ -89,6 +89,7 @@ class MyClass{
         MyClass(MyClass &MyClass){
             this->size = MyClass.size;
             this->element = new int [MyClass.size];
+            this->element = MyClass.element;
         }
         
 }
