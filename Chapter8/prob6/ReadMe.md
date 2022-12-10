@@ -1,3 +1,6 @@
+### 6.BaseArray 클래스를 상속받아 스택으로 작동하는 MyStack 클래스를 작성하라
+```C++
+//문제에서 주어진 코드
 #include <iostream>
 using namespace std;
 
@@ -15,25 +18,6 @@ protected:
 	int getCapacity() { return capacity; }
 };
 
-class MyStack:public BaseArray{
-	int index=0;
-public:
-	MyStack(int capacity):BaseArray(capacity) {
-	}
-	void push(int n) {
-		put(index, n);
-		index++;
-}
-	int capacity() {
-		return getCapacity();
-	}
-	int length() {
-		return index;
-	}
-	int pop() {
-		return get(--index);
-	}
-};
 int main() {
 	MyStack mStack(100);
 	int n;
@@ -50,3 +34,4 @@ int main() {
 	}
 	cout << endl << "스택의 현재 크기: " << mStack.length() << endl;
 }
+```
