@@ -1,79 +1,65 @@
 # CH7 Theory problems
 ---
 
-> ## 3.다음 함수 중 한 프로그램에 같이 선언할 수 없는 함수 2개를 골라라
+> ## 6.다음 프로그램은 컴파일 오류가 발생한다. 오류의 원인은 무엇인가? 오류를 바람직하게 수정하라
 >```C++
->//(1) 
->int f(int x);
->//(2)
->int f(double x);
->//(3)
->double f(int x, int y);
->//(4)
->int f(int x, int y);
-
-
-## __정답 :__
-(3) : 리턴 데이터 타입 차이만으로는 중복 함수를 정의할 수 없음
-(4) : 받는 인수의 개수가 다름
-
-> ## 7.다음과 같은 디폴트 매개 변수를 가진 함수가 있을 때, 적절치 못한 함수 호출은?
-> ```C++
->int add(int a=10, double b=10.0);
->```
->```C++
->//(1) 
->int x = add();
->//(2) 
->int x = add(20);
->//(3) 
->add(20, 3.14);
->//(4) 
->int x = add(3.14);
->```
-
-## __정답 :__
-(4) : int type 먼저 넣었어야 함
----
-> ## 12.다음 클래스의 객체가 생성될 때 화면에 출력되는 결과는?
->```C++
->class Overloading{
+>class Student{
+>        int id;
 >    public:
->        Overloading(int x=0){cout << x;}
->        Overloading(int x, string b){cout << x<< b;}
+>        Student(int id){this->id = id;}
+>
+>};
+>class Professor{
+>    private:
+>        string name;
+>    public:
+>        Professor(string name){this->name = name;}
 >};
 >
->//(1) 
->Overloading a;
->//(2)
->Overloading b(3);
->//(3)
->Overloading c(5, "hello");
+>void show(Student s, Professor p){
+>    cout << s.id << p.name;
+>}
 >```
+
+
 ## __정답 :__
-```bash
-0
-3
-5hello
-```
+id 와 name 인자는 private 설정이 되어 있기 때문에 show 함수를 friend 설정을 해주어 인자를 사용할 수 있도록 해야한다.
 
 ---
 
-> ## 16. 다음 StaticTest 클래스가 있을 때 다음 소스에서 잘못된 코드는?
+> ## 14.다음에서 멤버 함수로 + 연산자 함수를 작성할 수 없는 경우는?
+>```C++
+>class Power;
+>Power a, b; //Power 클래스에 대해
+>//(1)
+>a = a + b;
+>//(2)
+>b = a + 3;
+>//(3)
+>b = a += 3;
+>//(4)
+>b = 3 + a;
+>```
+
+## __정답 :__
+(3) : 안되는건 알겠는데 이유는 모르겠음
+
+---
+
+> ## 16. 다음에서 a, b는 Power 클래스의 객체이다. 연산자 함수를 Power 클래스의 프렌드 함수로 작성한다고 할 때, 왼쪽의 연산과 오른쪽의 연산자 함수를 선언이 잘못된 것은?
 ```C++
-class StaticTest{
-        static int a;
-    public:
-        static int getA(){return a};
-};
+//(1) a + b
+Power operator + (Power &a, Power &b);
 
-StaticTest s;
-StaticTest *p = &s;
+//(2) a == b
+bool operator == (Power a, Power b);
 
-StaticTest::getA();         //(1)
-s.getA();                   //(2)
-s::getA();                  //(3)
-p->getA();                  //(4)
+//(3) a++
+Power operator ++ (Power a, int b);
+
+//(4) a = b
+Power operator = (Power &a, Power b);
+
 ```
 ## 정답 :
-(3) : static 멤버 함수는 여러개 선언이 가능해서 s::를 쓰면 안됨
+(3) : &a로 참조 연산자를 사용해 주어야 함
