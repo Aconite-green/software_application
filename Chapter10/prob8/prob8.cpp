@@ -21,7 +21,7 @@ public:
 	}
 	bool operator < (Comparable& op2) {
 		Circle* op = (Circle*)&op2;
-		if (radius <op->getRadius())
+		if (radius < op->getRadius())
 			return 1;
 		else
 			return 0;
