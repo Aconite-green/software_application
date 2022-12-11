@@ -1,4 +1,4 @@
-# CH7 Theory problems
+# CH9 Theory problems
 ---
 
 > ## 6.다음 코드에 대해 물음에 답하여라
