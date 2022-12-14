@@ -1,6 +1,6 @@
 # CH12 Theory problems
 
-## 6. 다음과 같이 메모장으로 test.txt 파일을 작성하였다. 0123456789 뒤에 <Enter> 키가 있지만, Intege (r 뒤에는 <Enter> 키가 없다.
+## 6. 다음과 같이 메모장으로 test.txt 파일을 작성하였다. 0123456789 뒤에 <Enter> 키가 있지만, Integer (r 뒤에는 <Enter> 키가 없다.
 ```bash
 0123456789
 Integer
